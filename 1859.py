@@ -4,12 +4,11 @@ for t in range(1,T+1):
     prices = list(map(int,input().split()))
     answer = 0
     
-    max_price = prices[-1]
-    for i in range(n-2, -1, -1):
-        print("cur idx", i)
-        if max_price > prices[i]:
-            answer += max_price - prices[i]
+    max_price = 0
+    for price in reversed(prices):
+        if max_price > price:
+            answer += max_price - price
         else:
-            max_price = prices[i]
+            max_price = price
     print(f"#{t} {answer}")
     
